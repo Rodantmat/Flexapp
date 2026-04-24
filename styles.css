@@ -134,7 +134,8 @@ body {
   display: flex;
 }
 
-#qrDismissArea {
+#qrModalFrame {
+  position: relative;
   display: block;
   width: min(92vw, 520px);
   max-height: 86dvh;
@@ -144,8 +145,7 @@ body {
   border-radius: 8px;
   background: transparent;
   overflow: hidden;
-  cursor: pointer;
-  touch-action: manipulation;
+  touch-action: none;
 }
 
 #qrModalImage {
@@ -160,6 +160,21 @@ body {
   pointer-events: none;
   user-select: none;
   -webkit-user-drag: none;
+}
+
+#qrCloseHotspot {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16%;
+  height: 13%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: manipulation;
 }
 
 #cameraOverlay {

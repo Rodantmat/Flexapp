@@ -1,7 +1,7 @@
 const scanHitArea = document.getElementById('scanHitArea');
 const tapHereHitArea = document.getElementById('tapHereHitArea');
 const qrOverlay = document.getElementById('qrOverlay');
-const qrDismissArea = document.getElementById('qrDismissArea');
+const qrCloseHotspot = document.getElementById('qrCloseHotspot');
 const overlay = document.getElementById('cameraOverlay');
 const video = document.getElementById('cameraView');
 const closeButton = document.getElementById('closeCamera');
@@ -77,8 +77,7 @@ tapHereHitArea.addEventListener('click', openQrModal);
 tapHereHitArea.addEventListener('keydown', event => {
   if (event.key === 'Enter' || event.key === ' ') openQrModal(event);
 });
-qrDismissArea.addEventListener('click', closeQrModal);
-qrOverlay.addEventListener('click', closeQrModal);
+qrCloseHotspot.addEventListener('click', closeQrModal);
 
 scanHitArea.addEventListener('click', openCamera);
 scanHitArea.addEventListener('keydown', event => {
