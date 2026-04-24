@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Route Code">
+  <meta name="application-name" content="Route Code">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#005d82">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+  <title>Route Code</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="screen" aria-label="Scan route code screen" role="button" tabindex="0">
+    <img id="routeImage" src="route-screen.jpg" alt="Pick up a route for a 3.5 Hour block">
+  </main>
+
+  <section id="cameraOverlay" aria-hidden="true">
+    <video id="cameraView" autoplay playsinline muted></video>
+    <button id="closeCamera" type="button" aria-label="Close camera">×</button>
+    <div id="cameraMessage">Tap Allow to open camera</div>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
