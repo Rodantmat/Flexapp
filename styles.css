@@ -14,6 +14,66 @@ body {
   touch-action: none;
   background: #00557c;
   position: fixed;
+#loadingScreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  height: 100dvh;
+  overflow: hidden;
+  background: #138dbe;
+  z-index: 100;
+  touch-action: none;
+}
+
+#loadingScreen.hidden {
+  display: none;
+}
+
+#loadingImage {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: max(100vw, calc(100dvh * 1206 / 2622));
+  height: auto;
+  min-height: 100dvh;
+  transform: translateX(-50%);
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+#loadingBar {
+  position: absolute;
+  left: 50%;
+  bottom: calc(env(safe-area-inset-bottom) + 118px);
+  width: min(44vw, 190px);
+  height: 3px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  overflow: hidden;
+  z-index: 102;
+}
+
+#loadingBarFill {
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, 0.96);
+}
+
+body.loading #screen,
+body.loading #qrOverlay,
+body.loading #cameraOverlay {
+  visibility: hidden;
+}
+
   inset: 0;
 }
 

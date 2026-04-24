@@ -5,18 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Route Code">
-  <meta name="application-name" content="Route Code">
+  <meta name="apple-mobile-web-app-title" content="Amazon Flex">
+  <meta name="application-name" content="Amazon Flex">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#005d82">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="shortcut icon" href="favicon.ico">
   <link rel="manifest" href="manifest.json">
-  <title>Route Code</title>
+  <title>Amazon Flex</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="loading">
+  <section id="loadingScreen" aria-label="Amazon loading screen">
+    <img id="loadingImage" src="loading-screen.jpg" alt="">
+    <div id="loadingBar" aria-hidden="true"><div id="loadingBarFill"></div></div>
+  </section>
+
   <main id="screen" aria-label="Pick up a route for a 3.5 Hour block">
     <div id="imageStack" aria-hidden="true">
       <img id="routeTopImage" src="route-top.jpg" alt="">

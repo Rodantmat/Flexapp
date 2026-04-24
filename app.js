@@ -1,3 +1,33 @@
+const loadingScreen = document.getElementById('loadingScreen');
+const loadingBarFill = document.getElementById('loadingBarFill');
+
+function runLoadingScreen() {
+  const steps = [
+    [0, 0],
+    [180, 10],
+    [420, 24],
+    [700, 24],
+    [900, 43],
+    [1180, 58],
+    [1380, 58],
+    [1570, 76],
+    [1810, 91],
+    [2000, 100]
+  ];
+
+  steps.forEach(function(step) {
+    window.setTimeout(function() {
+      if (loadingBarFill) loadingBarFill.style.width = step[1] + '%';
+    }, step[0]);
+  });
+
+  window.setTimeout(function() {
+    document.body.classList.remove('loading');
+    if (loadingScreen) loadingScreen.classList.add('hidden');
+    lockViewport();
+  }, 2120);
+}
+
 const scanHitArea = document.getElementById('scanHitArea');
 const tapHereHitArea = document.getElementById('tapHereHitArea');
 const qrOverlay = document.getElementById('qrOverlay');
@@ -99,3 +129,5 @@ closeButton.addEventListener('click', event => {
   event.stopPropagation();
   closeCamera();
 });
+
+runLoadingScreen();
