@@ -26,8 +26,6 @@ body {
 #screen {
   position: fixed;
   inset: 0;
-  display: flex;
-  flex-direction: column;
   width: 100vw;
   height: 100vh;
   height: 100svh;
@@ -36,20 +34,37 @@ body {
   background: #00040f;
 }
 
-#routeTopImage {
+#imageStack {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: max(100vw, calc(100dvh * 1204 / 2418));
+  height: max(100dvh, calc(100vw * 2418 / 1204));
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+
+#routeTopImage,
+#routeBottomImage {
   display: block;
   width: 100%;
-  height: calc(100% - (100% * 338 / 2418));
-  object-fit: fill;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
   pointer-events: none;
-  flex: 0 0 calc(100% - (100% * 338 / 2418));
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+#routeTopImage {
+  aspect-ratio: 1204 / 2080;
 }
 
 #scanHitArea {
   display: block;
   width: 100%;
-  height: calc(100% * 338 / 2418);
-  flex: 0 0 calc(100% * 338 / 2418);
+  aspect-ratio: 1204 / 338;
   margin: 0;
   padding: 0;
   border: 0;
@@ -61,11 +76,9 @@ body {
 }
 
 #routeBottomImage {
-  display: block;
   width: 100%;
   height: 100%;
   object-fit: fill;
-  pointer-events: none;
 }
 
 #cameraOverlay {
