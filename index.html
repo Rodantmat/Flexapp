@@ -20,15 +20,19 @@
   <main id="screen" aria-label="Pick up a route for a 3.5 Hour block">
     <div id="imageStack" aria-hidden="true">
       <img id="routeTopImage" src="route-top.jpg" alt="">
-      <button id="tapHereHitArea" type="button" aria-label="No route available"></button>
+      <button id="tapHereHitArea" type="button" aria-label="No route available">
+        <img id="tapHereImage" src="tap-here-button.jpg" alt="">
+      </button>
       <button id="scanHitArea" type="button" aria-label="Scan route code">
         <img id="routeBottomImage" src="route-bottom.jpg" alt="">
       </button>
     </div>
   </main>
 
-  <section id="noRouteOverlay" aria-hidden="true">
-    <img id="noRoutePanel" src="no-route-modal.jpg" alt="No route available">
+  <section id="qrOverlay" aria-hidden="true">
+    <button id="qrDismissArea" type="button" aria-label="Close no route popup">
+      <img id="qrModalImage" src="no-route-modal.jpg" alt="No route available QR code">
+    </button>
   </section>
 
   <section id="cameraOverlay" aria-hidden="true">

@@ -1,7 +1,7 @@
 const scanHitArea = document.getElementById('scanHitArea');
 const tapHereHitArea = document.getElementById('tapHereHitArea');
-const noRouteOverlay = document.getElementById('noRouteOverlay');
-const noRoutePanel = document.getElementById('noRoutePanel');
+const qrOverlay = document.getElementById('qrOverlay');
+const qrDismissArea = document.getElementById('qrDismissArea');
 const overlay = document.getElementById('cameraOverlay');
 const video = document.getElementById('cameraView');
 const closeButton = document.getElementById('closeCamera');
@@ -21,19 +21,22 @@ document.addEventListener('gesturestart', event => event.preventDefault());
 document.addEventListener('gesturechange', event => event.preventDefault());
 document.addEventListener('gestureend', event => event.preventDefault());
 
-function openNoRoute() {
-  noRouteOverlay.classList.add('open');
-  noRouteOverlay.setAttribute('aria-hidden', 'false');
+function openQrModal(event) {
+  if (event) event.stopPropagation();
+  qrOverlay.classList.add('open');
+  qrOverlay.setAttribute('aria-hidden', 'false');
   lockViewport();
 }
 
-function closeNoRoute() {
-  noRouteOverlay.classList.remove('open');
-  noRouteOverlay.setAttribute('aria-hidden', 'true');
+function closeQrModal(event) {
+  if (event) event.stopPropagation();
+  qrOverlay.classList.remove('open');
+  qrOverlay.setAttribute('aria-hidden', 'true');
   lockViewport();
 }
 
 async function openCamera() {
+  if (qrOverlay.classList.contains('open')) return;
   overlay.classList.add('open');
   overlay.setAttribute('aria-hidden', 'false');
   message.textContent = 'Tap Allow to open camera';
@@ -70,19 +73,17 @@ function closeCamera() {
   lockViewport();
 }
 
+tapHereHitArea.addEventListener('click', openQrModal);
+tapHereHitArea.addEventListener('keydown', event => {
+  if (event.key === 'Enter' || event.key === ' ') openQrModal(event);
+});
+qrDismissArea.addEventListener('click', closeQrModal);
+qrOverlay.addEventListener('click', closeQrModal);
+
 scanHitArea.addEventListener('click', openCamera);
 scanHitArea.addEventListener('keydown', event => {
   if (event.key === 'Enter' || event.key === ' ') openCamera();
 });
-
-tapHereHitArea.addEventListener('click', openNoRoute);
-tapHereHitArea.addEventListener('keydown', event => {
-  if (event.key === 'Enter' || event.key === ' ') openNoRoute();
-});
-
-noRouteOverlay.addEventListener('click', closeNoRoute);
-noRoutePanel.addEventListener('click', closeNoRoute);
-
 closeButton.addEventListener('click', event => {
   event.stopPropagation();
   closeCamera();
