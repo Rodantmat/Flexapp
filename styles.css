@@ -26,22 +26,45 @@ body {
 #screen {
   position: fixed;
   inset: 0;
+  display: flex;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
   height: 100svh;
   height: 100dvh;
   overflow: hidden;
-  cursor: pointer;
   background: #00040f;
 }
 
-#routeImage {
-  position: absolute;
-  inset: 0;
+#routeTopImage {
+  display: block;
+  width: 100%;
+  height: calc(100% - (100% * 338 / 2418));
+  object-fit: fill;
+  pointer-events: none;
+  flex: 0 0 calc(100% - (100% * 338 / 2418));
+}
+
+#scanHitArea {
+  display: block;
+  width: 100%;
+  height: calc(100% * 338 / 2418);
+  flex: 0 0 calc(100% * 338 / 2418);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  touch-action: manipulation;
+}
+
+#routeBottomImage {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: fill;
   pointer-events: none;
 }
 

@@ -1,4 +1,4 @@
-const screenEl = document.getElementById('screen');
+const scanHitArea = document.getElementById('scanHitArea');
 const overlay = document.getElementById('cameraOverlay');
 const video = document.getElementById('cameraView');
 const closeButton = document.getElementById('closeCamera');
@@ -55,8 +55,8 @@ function closeCamera() {
   lockViewport();
 }
 
-screenEl.addEventListener('click', openCamera);
-screenEl.addEventListener('keydown', event => {
+scanHitArea.addEventListener('click', openCamera);
+scanHitArea.addEventListener('keydown', event => {
   if (event.key === 'Enter' || event.key === ' ') openCamera();
 });
 closeButton.addEventListener('click', event => {
