@@ -1,4 +1,7 @@
 const scanHitArea = document.getElementById('scanHitArea');
+const tapHereHitArea = document.getElementById('tapHereHitArea');
+const noRouteOverlay = document.getElementById('noRouteOverlay');
+const noRoutePanel = document.getElementById('noRoutePanel');
 const overlay = document.getElementById('cameraOverlay');
 const video = document.getElementById('cameraView');
 const closeButton = document.getElementById('closeCamera');
@@ -17,6 +20,18 @@ document.addEventListener('touchmove', event => event.preventDefault(), { passiv
 document.addEventListener('gesturestart', event => event.preventDefault());
 document.addEventListener('gesturechange', event => event.preventDefault());
 document.addEventListener('gestureend', event => event.preventDefault());
+
+function openNoRoute() {
+  noRouteOverlay.classList.add('open');
+  noRouteOverlay.setAttribute('aria-hidden', 'false');
+  lockViewport();
+}
+
+function closeNoRoute() {
+  noRouteOverlay.classList.remove('open');
+  noRouteOverlay.setAttribute('aria-hidden', 'true');
+  lockViewport();
+}
 
 async function openCamera() {
   overlay.classList.add('open');
@@ -59,6 +74,15 @@ scanHitArea.addEventListener('click', openCamera);
 scanHitArea.addEventListener('keydown', event => {
   if (event.key === 'Enter' || event.key === ' ') openCamera();
 });
+
+tapHereHitArea.addEventListener('click', openNoRoute);
+tapHereHitArea.addEventListener('keydown', event => {
+  if (event.key === 'Enter' || event.key === ' ') openNoRoute();
+});
+
+noRouteOverlay.addEventListener('click', closeNoRoute);
+noRoutePanel.addEventListener('click', closeNoRoute);
+
 closeButton.addEventListener('click', event => {
   event.stopPropagation();
   closeCamera();
