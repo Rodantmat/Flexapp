@@ -189,6 +189,23 @@ body {
   background: #000;
 }
 
+#cameraFrameImage {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: max(100vw, calc(100dvh * 1204 / 2418));
+  height: auto;
+  transform: translateX(-50%);
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  z-index: 58;
+}
+
 #closeCamera {
   position: absolute;
   top: calc(env(safe-area-inset-top) + 14px);
