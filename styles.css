@@ -36,7 +36,7 @@ body {
 
 #imageStack {
   position: absolute;
-  top: 28px;
+  top: 36px;
   left: 50%;
   width: max(100vw, calc(100dvh * 1204 / 2418));
   height: max(100dvh, calc(100vw * 2418 / 1204));
